@@ -1,0 +1,745 @@
+/* ===== 1. VARIABLES (colours and fonts, change them here once) ===== */
+:root {
+  --navy: #0f172a;
+  --teal: #14b8a6;
+  --teal-dark: #0f9488;
+  --light: #f1f5f9;
+  --text: #1e293b;
+  --white: #ffffff;
+}
+
+/* ===== 2. BASE STYLES ===== */
+* {
+  box-sizing: border-box; /* padding and border stay inside the width */
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", Arial, sans-serif;
+  color: var(--text);
+  background-color: var(--light);
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  margin-top: 0;
+  color: var(--navy);
+}
+
+a {
+  color: var(--teal-dark);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Centres content and stops it getting too wide */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ===== 3. NAVBAR ===== */
+.navbar {
+  background-color: var(--navy);
+  position: sticky; /* stays at the top while scrolling */
+  top: 0;
+  z-index: 100;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.logo {
+  color: var(--white);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.logo span {
+  color: var(--teal);
+}
+
+.logo:hover {
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  color: #cbd5e1;
+  font-weight: 500;
+  padding-bottom: 4px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--teal);
+  border-bottom: 2px solid var(--teal);
+  text-decoration: none;
+}
+
+/* ===== 4. BUTTONS ===== */
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-weight: 600;
+  border: 2px solid var(--teal);
+}
+
+.btn-primary {
+  background-color: var(--teal);
+  color: var(--navy);
+}
+
+.btn-primary:hover {
+  background-color: var(--teal-dark);
+  border-color: var(--teal-dark);
+  text-decoration: none;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--teal-dark);
+}
+
+.btn-outline:hover {
+  background-color: var(--teal);
+  color: var(--navy);
+  text-decoration: none;
+}
+
+/* ===== 5. HERO SECTION ===== */
+.hero {
+  padding: 50px 0;         /* was 70px */
+  background-color: var(--white);
+}
+
+.hero .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.hero-text {
+  max-width: 600px;
+}
+
+.hero-greeting {
+  color: var(--teal-dark);
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.hero-text h1 {
+  font-size: 2.8rem;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.hero-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.hero-buttons {
+  margin-top: 25px;
+  display: flex;
+  gap: 15px;
+}
+
+.hero-photo img {
+  width: 420px;
+  height: 420px;           /* keep width and height equal so it stays a circle */
+  object-fit: cover;
+  object-position: top;
+  border-radius: 50%;
+  border: 3px solid var(--teal);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.25);
+}
+
+/* ===== 6. SECTIONS AND CARDS ===== */
+.section {
+  padding: 60px 0;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.cards {
+  display: flex;
+  gap: 25px;
+}
+
+.card {
+  flex: 1;
+  background-color: var(--white);
+  padding: 30px;
+  border-radius: 12px;
+  border-top: 4px solid var(--teal);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* animate these two changes */
+}
+
+.card:hover {
+  transform: translateY(-10px);                    /* moves the card up 10px */
+  box-shadow: 0 16px 30px rgba(20, 184, 166, 0.25); /* deeper teal-tinted shadow */
+}
+
+.card h3 {
+  margin-bottom: 10px;
+}
+
+/* ===== 7. FOOTER ===== */
+.footer {
+  background-color: var(--navy);
+  color: #94a3b8;
+  text-align: center;
+  padding: 25px 0;
+}
+
+.footer a {
+  color: var(--teal);
+}
+
+/* about css */
+/* ===== 8. PAGE HEADER BANNER (used on inner pages) ===== */
+.page-header {
+  background-color: var(--navy);
+  color: var(--white);
+  text-align: center;
+  padding: 50px 0;
+}
+
+.page-header h1 {
+  color: var(--white);
+  margin-bottom: 8px;
+  font-size: 2.4rem;
+}
+
+.page-header p {
+  color: #94a3b8;
+  margin: 0;
+}
+
+/* ===== 9. ABOUT PAGE ===== */
+.about-intro {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.about-intro img {
+  width: 400px;
+  height: 400px;           /* equal width and height = a circle */
+  object-fit: cover;
+  object-position: center 15%; /* keeps the face near the top of the circle */
+  border-radius: 50%;
+  border: 3px solid var(--teal);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.25);
+  flex-shrink: 0;
+}
+
+.about-two-col {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.panel {
+  flex: 1;
+  background-color: var(--white);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+}
+
+.panel h2 {
+  font-size: 1.4rem;
+  padding-bottom: 10px;
+  border-bottom: 3px solid var(--teal);
+  margin-bottom: 20px;
+}
+
+/* Timeline (ordered list) */
+.timeline {
+  margin: 0;
+  padding-left: 25px;
+  border-left: 3px solid var(--teal);
+  list-style: none;
+}
+
+.timeline li {
+  margin-bottom: 22px;
+}
+
+.timeline li:last-child {
+  margin-bottom: 0;
+}
+
+.timeline .when {
+  display: block;
+  color: var(--teal-dark);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.timeline .what {
+  display: block;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+/* Description list (quick facts) */
+.facts dt {
+  font-weight: 600;
+  color: var(--navy);
+  margin-top: 14px;
+}
+
+.facts dd {
+  margin: 2px 0 0 0;
+  color: #475569;
+}
+
+/* Interests (unordered list) */
+.interests {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.interests li {
+  margin-bottom: 8px;
+}
+/* skill css */
+/* ===== 10. SKILLS PAGE: STYLED TABLE ===== */
+.table-wrap {
+  overflow-x: auto;        /* lets the table scroll sideways on small screens */
+  background-color: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+}
+
+.skills-table {
+  width: 100%;
+  border-collapse: collapse; /* merges the double borders into single lines */
+}
+
+.skills-table th,
+.skills-table td {
+  padding: 16px 20px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.skills-table thead th {
+  background-color: var(--navy);
+  color: var(--white);
+  font-weight: 600;
+}
+
+/* Stripes: every second row gets a light background */
+.skills-table tbody tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+/* Hover highlight */
+.skills-table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.skills-table tbody tr:hover {
+  background-color: #ccfbf1;
+}
+
+.skills-table td:first-child {
+  font-weight: 600;
+  color: var(--navy);
+}
+
+/* Level badges */
+.level {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.level-advanced {
+  background-color: var(--teal);
+  color: var(--navy);
+}
+
+.level-intermediate {
+  background-color: #99f6e4;
+  color: var(--navy);
+}
+
+.level-beginner {
+  background-color: #e2e8f0;
+  color: #475569;
+}
+
+.table-note {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #64748b;
+}
+/* project css */
+/* ===== 11. PROJECTS PAGE ===== */
+.projects-grid {
+  display: flex;
+  flex-wrap: wrap;          /* lets cards drop onto a new row */
+  gap: 30px;
+}
+
+.project-card {
+  flex: 1 1 calc(50% - 15px);
+  display: flex;
+  flex-direction: column;     /* stacks image and body vertically */
+  background-color: var(--white);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 30px rgba(20, 184, 166, 0.25);
+}
+
+.project-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  background-color: var(--navy); /* shows if the image is missing */
+  color: #94a3b8;
+}
+
+.project-body {
+  padding: 25px;
+  flex: 1;                    /* body fills the leftover card height */
+  display: flex;
+  flex-direction: column;
+}
+
+.project-body .btn {
+  margin-top: auto;           /* pushes the button to the bottom of the card */
+  align-self: flex-start;     /* keeps it button-sized instead of full width */
+}
+
+.project-body h3 {
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+}
+
+.project-summary {
+  color: var(--teal-dark);
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+}
+
+.tags {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tags li {
+  background-color: #e2e8f0;
+  color: #475569;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+/* contact css */
+/* ===== 12. CONTACT PAGE ===== */
+.contact-layout {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.contact-info {
+  flex: 1;
+}
+
+.contact-form-wrap {
+  flex: 1.3;
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 25px 0;
+}
+
+.contact-list li {
+  margin-bottom: 12px;
+}
+
+.contact-list strong {
+  display: block;
+  color: var(--navy);
+}
+
+.map-frame {
+  width: 100%;
+  height: 360px;           /* was 280px, gives the map more room above the footer */
+  border: 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+}
+
+/* Form styling */
+.contact-form label {
+  display: block;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 20px;
+  border: 2px solid #cbd5e1;
+  border-radius: 8px;
+  font-family: inherit;      /* inputs don't inherit the font by default */
+  font-size: 1rem;
+  background-color: var(--white);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--teal);
+  box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.2);
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+.contact-form fieldset {
+  border: 2px solid #cbd5e1;
+  border-radius: 8px;
+  margin: 0 0 20px 0;
+  padding: 12px 16px;
+}
+
+.contact-form legend {
+  font-weight: 600;
+  color: var(--navy);
+  padding: 0 8px;
+}
+
+.contact-form .option {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.contact-form .option label {
+  display: inline;
+  font-weight: 400;
+  margin-left: 4px;
+}
+
+.contact-form .checkbox-row {
+  margin-bottom: 25px;
+}
+
+.contact-form .checkbox-row label {
+  display: inline;
+  font-weight: 400;
+  margin-left: 6px;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.form-buttons button {
+  font-family: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+}
+/* additional of skills css */
+/* ===== 13. SKILLS: DARK SECTION, TABS AND PROGRESS RINGS ===== */
+.skills-dark {
+  --card-bg: #162033;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 55%, #0f3d3a 100%);
+  padding: 60px 0 70px;
+}
+
+.skills-dark .section-title {
+  color: var(--white);
+}
+
+.skills-dark .section-subtitle {
+  color: #94a3b8;
+}
+
+.accent {
+  color: var(--teal);
+}
+
+/* Tabs: radio buttons are hidden, the labels act as the buttons */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.tabs input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.tabs label {
+  padding: 12px 26px;
+  border-radius: 50px;
+  background-color: var(--card-bg);
+  border: 1px solid #334155;
+  color: #94a3b8;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tabs label:hover {
+  color: var(--white);
+  border-color: var(--teal);
+}
+
+/* The label right after the checked radio looks "selected" */
+#tab-lang:checked + label,
+#tab-db:checked + label,
+#tab-tools:checked + label {
+  background: linear-gradient(90deg, var(--teal-dark), var(--teal));
+  color: var(--navy);
+  border-color: transparent;
+  box-shadow: 0 8px 20px rgba(20, 184, 166, 0.35);
+}
+
+.tabs input:focus-visible + label {
+  outline: 3px solid var(--white);
+  outline-offset: 3px;
+}
+
+/* Panels: hidden by default, shown when their radio is checked */
+.tab-panel {
+  display: none;
+  width: 100%;
+  margin-top: 35px;
+}
+
+#tab-lang:checked ~ #panel-lang,
+#tab-db:checked ~ #panel-db,
+#tab-tools:checked ~ #panel-tools {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Skill cards */
+.skill-card {
+  width: 150px;
+  background-color: var(--card-bg);
+  border: 1px solid #334155;
+  border-radius: 20px;
+  padding: 25px 12px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 14px 28px rgba(20, 184, 166, 0.25);
+}
+
+.skill-card h3 {
+  color: var(--white);
+  font-size: 1rem;
+  margin: 0 0 2px 0;
+}
+
+.skill-card p {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* Progress ring: --value and --color are set on each ring in the HTML */
+.ring {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 15px;
+  border-radius: 50%;
+  background: conic-gradient(var(--color) calc(var(--value) * 1%), #334155 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* The inner circle that turns the pie slice into a ring */
+.ring::before {
+  content: "";
+  position: absolute;
+  inset: 9px;
+  border-radius: 50%;
+  background-color: var(--card-bg);
+}
+
+.ring span {
+  position: relative;       /* sits on top of the inner circle */
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--color);
+}
